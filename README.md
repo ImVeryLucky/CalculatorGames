@@ -1,9 +1,9 @@
 # Overview
-These are some game(s) that I have made during my calclus period.  Coding is slow but it's way better than notetaking C:
+These are some game(s) that I have made during my calclus period.  Coding is slow but it's way better than notetaking C:<br/>
+Games with saving require TI84 because saving to TI84 requires TI System module.<br/>
 
-[Real Calculator Game](#real-calculator-game).
-
-[Calculator Type](#calculator-type).
+[Real Calculator Game](#real-calculator-game).<br/>
+[Calculator Type](#calculator-type).<br/>
 ## Real Calculator Game
 Delve into the world of Los Angelos as a investiagtor, sent to investigate some suspicious happenins at a suspicious apartment. Fight goblins, dinosaurs, and.... kid touchers????? Endless mode is also an option.
 ### WIP
