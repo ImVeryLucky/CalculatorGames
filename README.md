@@ -2,6 +2,7 @@
 These are some game(s) that I have made during my calclus period.  Coding is slow but it's way better than notetaking C:
 
 [Real Calculator Game](#real-calculator-game).
+[Calculator Type](#calculator-type).
 ## Real Calculator Game
 Delve into the world of Los Angelos as a investiagtor, sent to investigate some suspicious happenins at a suspicious apartment. Fight goblins, dinosaurs, and.... kid touchers????? Endless mode is also an option.
 ### WIP
@@ -64,3 +65,22 @@ Add a potential inventory system to the amount of armor and weapons the player h
 - Made cool speech bubbles and set the framework for the story.
 </details>
 
+## Calculator Type
+The (in my mind) better version of Nitro Type. Sentences are now randomly generated to form true typing challenges, and cars have an impact on races.
+### WIP
+Add save file potential
+More cars
+More sentence words ( More nouns, adj, adv, verb, etc.)
+
+### Update Logs
+<details>
+<summary>Alpha Version Update Log</summary>
+
+### Version 0.0.0A
+- Game not finished but the mechanics are done.
+- Players could "race" and type sentences.
+### Version 0.0.1A
+- Fixed bug where races ended with one word left.
+- Added shop functionality.
+
+</details>
