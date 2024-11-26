@@ -2,6 +2,7 @@
 These are some game(s) that I have made during my calclus period.  Coding is slow but it's way better than notetaking C:
 
 [Real Calculator Game](#real-calculator-game).
+
 [Calculator Type](#calculator-type).
 ## Real Calculator Game
 Delve into the world of Los Angelos as a investiagtor, sent to investigate some suspicious happenins at a suspicious apartment. Fight goblins, dinosaurs, and.... kid touchers????? Endless mode is also an option.
