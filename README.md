@@ -7,9 +7,9 @@ These are some game(s) that I have made during my calclus period.  Coding is slo
 ## Real Calculator Game
 Delve into the world of Los Angelos as a investiagtor, sent to investigate some suspicious happenins at a suspicious apartment. Fight goblins, dinosaurs, and.... kid touchers????? Endless mode is also an option.
 ### WIP
-Getting the story done :C
-Optimize memory to use only 1 lane instead of 3
-Add a potential inventory system to the amount of armor and weapons the player has.
+- Getting the story done :C
+- Optimize memory to use only 1 lane instead of 3
+- Add a potential inventory system to the amount of armor and weapons the player has.
 
 ### Update Logs
 <details>
@@ -69,9 +69,9 @@ Add a potential inventory system to the amount of armor and weapons the player h
 ## Calculator Type
 The (in my mind) better version of Nitro Type. Sentences are now randomly generated to form true typing challenges, and cars have an impact on races.
 ### WIP
-Add save file potential
-More cars
-More sentence words ( More nouns, adj, adv, verb, etc.)
+- Add save file potential
+- More cars
+- More sentence words ( More nouns, adj, adv, verb, etc.)
 
 ### Update Logs
 <details>
