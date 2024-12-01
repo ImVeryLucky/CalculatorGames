@@ -138,7 +138,7 @@ def story(file,maxHealt,move,leve,gol,enemie,nam):
     pri("You take a peek, but the people inside see you.")
   stats=battle(14,stats)
   pri(twoc[2])
-  if(checkDead(stats[4]):
+  if(checkDead(stats[4])):
     return 0
   save(stats)
 
