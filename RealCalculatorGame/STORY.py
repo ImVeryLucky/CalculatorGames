@@ -8,8 +8,17 @@ import INFO as inf
 
 
 
-def s(filer,maxHealth,moves,level,gold,enemies,name):
-  svr.saveGame(filer,maxHealth,moves,level,gold,enemies,name)
+def save(stats):
+  svr.saveGame(stats[0],stats[1],stats[2],stats[3],stats[4],stats[5],stats[6])
+
+def battle(enemy,stats):
+  statb=btl.battle(stats[6],stats[4],stats[1],stats[2],enemy,stats[3])
+  stats[4]=statb[0]
+  stats[1]=statb[1]
+  stats[2]=statb[2]
+  stats[3]=statb[3]
+  return stats
+
 def pri(msg):
   for i in msg:
     print(i,end="")
@@ -89,68 +98,84 @@ end=[
 "but with they’re leader completely and utterly stomped, there was not much they could’ve done.",
 "As you turned to walk back up the stairs, the crowd that had formed parted in two.",
 "Only your footsteps were heard as you headed out of the mansion."
+"Thank you for playing!"
 ]
 def story(file,maxHealt,move,leve,gol,enemie,nam):
-  gold=gol
-  enemies=enemie
-  moves=move
-  level=leve
-  filer=file
-  
-  maxHealth=maxHealt
-  name=nam
+
+  stats=[file, maxHealt, move, leve, gol, enemie, nam]
+
   read(start)
-  stat=shp.shop(gold,moves,maxHealth)
-  gold=stat[0]
-  moves=stat[1]
-  maxHealth=stat[2]
+  stat=shp.shop(stats[4],stats[2],stats[1])
+  stats[4]=stat[0]
+  stats[2]=stat[1]
+  stats[1]=stat[2]
   
-  s(filer,maxHealth,moves,level,gold,enemies,name)
+  save(stat)
   read(two)
   opt=choice("Sneak into the mansion","Don't sneak in")
   if opt==2 or randint(0,10)>7:
     if opt != 2:
       pri("You tried to sneak in, but unfortunately got caught")
-    stats=btl.battle(name,gold,maxHealth,moves,14,level)
-    gold=stats[0]
-    maxHealth=stats[1]
-    moves=stats[2]
-    level=stats[3]
+    statb=btl.battle(stats[6],stats[4],stats[1],stats[2],14,stats[3])
+    stats[4]=statb[0]
+    stats[1]=statb[1]
+    stats[2]=statb[2]
+    stats[3]=statb[3]
     pri(twoc[2])
-    if(checkDead(gold)):
-      return 0;
+    if(checkDead(stats[4])):
+      return 0
   else:
     pri(twoc[1])
-  s(filer,maxHealth,moves,level,gold,enemies,name)
+  save(stats)
 
   read(three)
-  stats=btl.battle(name,gold,maxHealth,moves,14,level)
-  gold=stats[0]
-  maxHealth=stats[1]
-  moves=stats[2]
-  level=stats[3]
+  statb=btl.battle(stats[6],stats[4],stats[1],stats[2],14,stats[3])
+  stats[4]=statb[0]
+  stats[1]=statb[1]
+  stats[2]=statb[2]
+  stats[3]=statb[3]
   pri(twoc[2])
-  if(checkDead(gold)):
-    return 0;
+  if(checkDead(stats[4]):
+    return 0
   
   read(four)
-  if opt==2 or randint(0,10)>7:
-    if opt != 2:
-      pri("You tried to sneak in, but unfortunately got caught")
-    stats=btl.battle(name,gold,maxHealth,moves,14,level)
-    gold=stats[0]
-    maxHealth=stats[1]
-    moves=stats[2]
-    level=stats[3]
-    pri(twoc[2])
-    if(checkDead(gold)):
-      return 0;
+  opt=choice("Wait it out", "Take a")
+  if opt==2:
+    pri("You wait, but the people don’t leave. You're on a time constraint. You must fight.")
   else:
-    pri(twoc[1])
-  s(filer,maxHealth,moves,level,gold,enemies,name)
-  read(five)
-  read(six)
-  read(end)
+    pri("You take a peek, but the people inside see you.")
+  statb=btl.battle(name,stats[4],stats[1],stats[2],14,stats[3])  
+  stats[4]=statb[0]
+  stats[1]=statb[1]
+  stats[2]=statb[2]
+  stats[3]=statb[3]
+  pri(twoc[2])
+  if(checkDead(stats[4]):
+    return 0
+  save(stats)
 
-return 1;
+  read(five)
+  statb=btl.battle(name,stats[4],stats[1],stats[2],14,stats[3])  
+  stats[4]=statb[0]
+  stats[1]=statb[1]
+  stats[2]=statb[2]
+  stats[3]=statb[3]
+  pri(twoc[2])
+  if(checkDead(stats[4])):
+    return 0
+  save(stats)
+
+  read(six)
+  stats=btl.battle(name,stats[4],stats[1],stats[2],14,stats[3])  
+  stats[4]=stats[0]
+  stats[1]=stats[1]
+  stats[2]=stats[2]
+  stats[3]=stats[3]
+  pri(twoc[2])
+  if(checkDead(stats[4])):
+    return 0
+  save(stats)
+  
+  read(end)
+  return 1
     
