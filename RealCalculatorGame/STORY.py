@@ -116,11 +116,7 @@ def story(file,maxHealt,move,leve,gol,enemie,nam):
   if opt==2 or randint(0,10)>7:
     if opt != 2:
       pri("You tried to sneak in, but unfortunately got caught")
-    statb=btl.battle(stats[6],stats[4],stats[1],stats[2],14,stats[3])
-    stats[4]=statb[0]
-    stats[1]=statb[1]
-    stats[2]=statb[2]
-    stats[3]=statb[3]
+    stats=battle(14,stats)
     pri(twoc[2])
     if(checkDead(stats[4])):
       return 0
@@ -129,13 +125,9 @@ def story(file,maxHealt,move,leve,gol,enemie,nam):
   save(stats)
 
   read(three)
-  statb=btl.battle(stats[6],stats[4],stats[1],stats[2],14,stats[3])
-  stats[4]=statb[0]
-  stats[1]=statb[1]
-  stats[2]=statb[2]
-  stats[3]=statb[3]
+  stats=battle(14,stats)
   pri(twoc[2])
-  if(checkDead(stats[4]):
+  if(checkDead(stats[4])):
     return 0
   
   read(four)
@@ -144,38 +136,26 @@ def story(file,maxHealt,move,leve,gol,enemie,nam):
     pri("You wait, but the people don’t leave. You're on a time constraint. You must fight.")
   else:
     pri("You take a peek, but the people inside see you.")
-  statb=btl.battle(name,stats[4],stats[1],stats[2],14,stats[3])  
-  stats[4]=statb[0]
-  stats[1]=statb[1]
-  stats[2]=statb[2]
-  stats[3]=statb[3]
+  stats=battle(14,stats)
   pri(twoc[2])
   if(checkDead(stats[4]):
     return 0
   save(stats)
 
   read(five)
-  statb=btl.battle(name,stats[4],stats[1],stats[2],14,stats[3])  
-  stats[4]=statb[0]
-  stats[1]=statb[1]
-  stats[2]=statb[2]
-  stats[3]=statb[3]
+  stats=battle(14,stats)
   pri(twoc[2])
   if(checkDead(stats[4])):
     return 0
   save(stats)
 
   read(six)
-  stats=btl.battle(name,stats[4],stats[1],stats[2],14,stats[3])  
-  stats[4]=stats[0]
-  stats[1]=stats[1]
-  stats[2]=stats[2]
-  stats[3]=stats[3]
+  stats=battle(14,stats)
   pri(twoc[2])
   if(checkDead(stats[4])):
     return 0
   save(stats)
-  
+
   read(end)
   return 1
     
