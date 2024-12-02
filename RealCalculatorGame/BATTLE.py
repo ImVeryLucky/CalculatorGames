@@ -1,67 +1,21 @@
 from time import *
-def eName(enemies,gold):
-  if gold<-10:
-    return "debt collector"
+
+def findEnemy(enemies,level,gold):
+  if(gold < -10)
+    eStats=["debt collector",int(gold*gold),69]
   elif (enemies%69==0):
-    return "diddy"
+    eStats=["diddy",int(100*(enemies+level)/2+1),50*((enemies/2)+level+1)]
   elif (enemies%25==0):
-    return "dinorphan"
+    eStats=["dinorphan",int(69*((enemies/2)+level+1)),50*(enemies+level)/2+1]
   elif (enemies%7==0):
-    return "kid toucher"
+    eStats=["kid toucher",25*(1+enemies+level),1+(enemies+level)/50]
   elif (enemies%3==0):
-    return "dino"
+    eStats=["dino",int(30*((enemies/2)+level+1)),10*(enemies+level)/2+1]
   elif (enemies%2==0):
-    return "goblin"
+    eStats=["goblin",int(10*(enemies+level)/2+1),5*((enemies/2)+level+1)]
   else:
-    return "homeless orphan"
-
-def eHealth(enemies,level,name,gold):
-  if name=="goblin":
-    hp=int(10*(enemies+level)/2+1)
-    return hp
-  elif name=="diddy":
-    hp=int(100*(enemies+level)/2+1)
-    return hp
-  elif name=="dino":
-    hp=int(30*((enemies/2)+level+1))
-    return hp
-  elif name=="dinorphan":
-    hp=int(69*((enemies/2)+level+1))
-    return hp
-  elif name=="kid toucher":
-    hp=25*(1+enemies+level)
-    return hp
-  elif name=="debt collector":
-    hp=(gold*gold)
-    return hp
-  else:
-    hp=int(10*(enemies/2+level)/2+1)
-    return hp
-
-def eAttacks(enemies,level,name,gold):
-  if name=="goblin":
-    attack=5*((enemies/2)+level+1)
-    return attack
-  elif name=="diddy":
-    attack=50*((enemies/2)+level+1)
-  elif name=="dino":
-    attack=10*(enemies+level)/2+1
-    return attack
-  elif name=="dinorphan":
-    attack=50*(enemies+level)/2+1
-    return attack
-  elif name=="kid toucher":
-    attack=1+(enemies+level)/50
-    return attack
-  elif name=="debt collector":
-    attack=69
-    return attack
-  else:
-    attack=(enemies/2+level)/2+1
-    return attack
-
-
-
+    eStats=["homeless orphan",int(10*(enemies/2+level)/2+1),(enemies/2+level)/2+1]
+  return eStats
 
 def display(name,mHp,cHp,atk):
   print("Name:"+name)
@@ -72,9 +26,10 @@ def display(name,mHp,cHp,atk):
 def battle(name,gold,health,attack,enemies,level):
   print("Starting Battle")
   stats=[gold,health,attack,level]
-  eN=eName(enemies,gold)
-  eHp=int(eHealth(enemies,level,eN,gold)) 
-  eAtk=eAttacks(enemies,level,eN,gold)
+  enStats=findEnemy(enemies,level, gold)
+  eN=eStats[0]
+  eHp=eStats[1] 
+  eAtk=eStats[2]
   ceHp=eHp
   cHealth=stats[1]
   while 0<cHealth and 0<ceHp:
