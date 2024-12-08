@@ -1,7 +1,7 @@
 
 # Data Sharing
-from ti_system import *
-import SHOP as svr
+#from SHOP import checkInt
+from ti_system import recall_list,store_list
 
 alphabet=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 
@@ -32,23 +32,22 @@ def getSave(file):
   loader=recall_list(file)
   return loader
 
-def display():
-  for i in range(1,4):
-    
+def display(start,stop):
+  for i in range(start,stop):
     loader=recall_list(i)
     name=str(getName(int(i)))
     print(" File",i)
     print(" Name:"+name)
 
 
-def getFile():
-  inp=svr.checkInt("\n What Save File? (Overwrite = 0)\n Well?")
-  while 3<=inp and inp<=0:
+def getFile(start,stop):
+  inp=int(input("\n What Save File? (Overwrite = 0)\n Well?"))
+  while stop<=inp and inp<=start:
     print("Invalid Input")
-    inp=svr.checkInt("\n What Save File? (Overwrite = 0)\n Well?")
+    inp=int(input("\n What Save File? (Overwrite = 0)\n Well?"))
   if inp==0:
     inp=int(input(" What Save File do you want to overwrite?"))
-    while 3<=inp and inp<=0:
+    while start<=inp and inp<=stop:
       print("Invalid Input")
       inp=int(input(" What Save File do you want to overwrite?"))
     return (inp*10)

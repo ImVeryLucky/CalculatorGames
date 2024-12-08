@@ -1,7 +1,7 @@
 from time import *
 
 def findEnemy(enemies,level,gold):
-  if(gold < -10)
+  if(gold < -10):
     eStats=["debt collector",int(gold*gold),69]
   elif (enemies%69==0):
     eStats=["diddy",int(100*(enemies+level)/2+1),50*((enemies/2)+level+1)]
@@ -73,3 +73,9 @@ def battle(name,gold,health,attack,enemies,level):
     sleep(1)
     
   return stats
+
+
+
+
+
+

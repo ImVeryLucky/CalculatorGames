@@ -1,12 +1,10 @@
-import SHOP as shp
-import BATTLE as btl
-import SAVERR as svr
 import LOADING as ld 
-from time import *
-from random import *
+from time import sleep
+from random import randint
+from gc import collect
 import INFO as inf
-
-
+import SAVERR as svr
+import SHOP as shp
 
 def save(stats):
   svr.saveGame(stats[0],stats[1],stats[2],stats[3],stats[4],stats[5],stats[6])
@@ -23,6 +21,7 @@ def pri(msg):
   for i in msg:
     print(i,end="")
     sleep(0.05)
+
 def choice(choice1,choice2):
   enter=""
   while enter!="1" and enter!="2":
@@ -35,7 +34,9 @@ def choice(choice1,choice2):
 def read(list):
   for i in list:
     pri(i)
+    print()
     sleep(2)
+    print()
     #j=input("")
 
 def checkDead(gold):
@@ -62,6 +63,9 @@ def story(file,maxHealt,move,leve,gol,enemie,nam):
 
   read(start)
   del start
+  collect()
+  print(collect())
+  from SHOP import shop
   stat=shp.shop(stats[4],stats[2],stats[1])
   stats[4]=stat[0]
   stats[2]=stat[1]
@@ -77,6 +81,7 @@ def story(file,maxHealt,move,leve,gol,enemie,nam):
   read(two)
   del two
   opt=choice("Sneak into the mansion","Don't sneak in")
+  import BATTLE as btl
   if opt==2 or randint(0,10)>7:
     if opt != 2:
       pri("You tried to sneak in, but unfortunately got caught")
@@ -162,3 +167,9 @@ def story(file,maxHealt,move,leve,gol,enemie,nam):
   del end
   return 1
     
+
+story("o",1,1,1,1,1,1)
+
+
+
+

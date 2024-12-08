@@ -7,8 +7,6 @@ def checkInt(msg):
   out=int(out)
   return out
 
-
-
 def weapons(gold,atk):
   cgold=gold
   attack=atk

@@ -1,14 +1,12 @@
+
 version="1.2.5"
-import BATTLE as btl
-import SHOP as shp
-import STORY as sty 
+import gc
 import SAVERR as svr
 import INFO as inf
 import HELLO as begin
 import LOADING as ld 
 
-
-
+gc.collect()
 ld.load(2)
 print("        Real\n           Calculator\n                    Game\n")
 print("                  Version "+version)
@@ -23,8 +21,8 @@ while mode!="1" and mode!="2":
   print("2.Endless\n")
   mode=input("What will you do?")
 print("Save Files\n")
-svr.display()
-filer=svr.getFile()
+svr.display(1,4)
+filer=svr.getFile(1,3)
 print(filer)
 if filer<5:
   load=svr.getSave(filer)
@@ -48,6 +46,8 @@ else:
 exit="y"
 
 if mode=="1":
+  gc.collect()
+  import STORY as sty 
   ld.load(1)
   svr.saveGame(filer,maxHealth,moves,level,gold,enemies,name)
   
@@ -68,6 +68,7 @@ while exit!="n" and mode=="2":
     i=input("What will you do?")
     
   if i=="8":
+    import SHOP as shp
     ld.load(1)
     #print("Heading to shop...")
     stat=shp.shop(gold,moves,maxHealth)
@@ -77,7 +78,9 @@ while exit!="n" and mode=="2":
     ld.load(1)
     
   elif i=="6" :
+    import BATTLE as btl
     ld.load(1)
+    
     #print("Heading to battle...")
     stats=btl.battle(name,gold,maxHealth,moves,enemies,level)
     ld.load(1)
