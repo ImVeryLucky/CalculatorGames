@@ -1,3 +1,5 @@
+hi = "would you like to play a game?(1/0)"
+
 
 def GetName():
   print("")
@@ -9,8 +11,9 @@ def GetName():
   print("")
   return n
 
+
 def start():
-  i=input("would you like to play a game?(1/0)")
+  i=input(hi)
   while i!="1":
     print("you have no choice -_-")
-    i=input("would you like to play a game?(1/0)")
+    i=input(hi)

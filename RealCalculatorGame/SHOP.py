@@ -1,12 +1,9 @@
+from LOADING import checkInt
 
-def checkInt(msg):
-  out=input(msg)
-  while out.isdigit()==False:
-    print("Invalid")
-    out=input(msg)
-  out=int(out)
-  return out
-
+Invalid = "Invalid"
+buyOnce = "What would you like to buy?"
+buyAgain = "What else would you like to buy?"
+headingBack = "Heading back to shop..."
 def weapons(gold,atk):
   cgold=gold
   attack=atk
@@ -17,7 +14,7 @@ def weapons(gold,atk):
   for i in range(0,len(attackName),1):
     print(i+1,attackName[i]+"Cost:",(2*i+1), "Atk:",(i*i+1))
   print("Type number of weapon to purchase, or 0 to return back")
-  inputW=checkInt("What would you like to buy?")
+  inputW=checkInt(buyOnce)
   while inputW!=0:
     if 0<inputW<6 and 0<cgold:
       c=checkInt("Quantity?")
@@ -25,9 +22,9 @@ def weapons(gold,atk):
       attack+=c*((inputW-1)**2+1)
       print("Item Bought")
     else:
-      print("Invalid Input")
-    inputW=checkInt("What else would you like to buy?")
-  print("Heading back to shop...")
+      print(Invalid)
+    inputW=checkInt(buyAgain)
+  print(headingBack)
   stat=[cgold,attack]
   return stat
 
@@ -41,16 +38,16 @@ def armors(gold,health):
   for i in range(0,len(armorName),1):
     print(i+1,armorName[i]+"Cost:",(5*i+1), "Def:",(i*i*7))
   print("Type number of armor to purchase, or 0 to return back")
-  inputA=checkInt("What would you like to buy?")
+  inputA=checkInt(buyOnce)
   while inputA!=0:
     if 0<inputA<6 and 0<cgold:
       c=checkInt("Quantity?")
       cgold-=c*(5*(inputA-1)+1)
       chealth+=c*((inputA-1)**2)*7
     else:
-      print("Invalid")
-    inputA=checkInt("What else would you like to buy?")
-  print("See you soon")
+      print(Invalid)
+    inputA=checkInt(buyAgain)
+  print(headingBack)
   stat=[cgold,chealth]
   return stat
 
@@ -76,8 +73,7 @@ def shop(gold,weapon,maxHealth):
       cash=sub[0]
       health=sub[1]
     else:
-      print("Invalid Input")
-      print("Try Again")
+      print(Invalid)
   print("Heading Back...\n")
   stat=[cash,attack,health]
   return stat

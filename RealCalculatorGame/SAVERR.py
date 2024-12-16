@@ -1,9 +1,12 @@
 
 # Data Sharing
-#from SHOP import checkInt
+from LOADING import checkInt
 from ti_system import recall_list,store_list
 
 alphabet=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+getMsg = "\n What Save File? (Overwrite = 0)\n Well?"
+getNum = "What Save File do you want to overwrite?"
+invalid = "Invalid Input"
 
 def storeName(name,save):
   save.append(0)
@@ -39,17 +42,16 @@ def display(start,stop):
     print(" File",i)
     print(" Name:"+name)
 
-
 def getFile(start,stop):
-  inp=int(input("\n What Save File? (Overwrite = 0)\n Well?"))
+  inp=int(input(getMsg))
   while stop<=inp and inp<=start:
-    print("Invalid Input")
-    inp=int(input("\n What Save File? (Overwrite = 0)\n Well?"))
+    print(invalid)
+    inp=int(input(getMsg))
   if inp==0:
-    inp=int(input(" What Save File do you want to overwrite?"))
+    inp=int(input(getNum))
     while start<=inp and inp<=stop:
-      print("Invalid Input")
-      inp=int(input(" What Save File do you want to overwrite?"))
+      print(invalid)
+      inp=int(input(getNum))
     return (inp*10)
   else:
     return inp

@@ -2,7 +2,6 @@
 version="1.2.5"
 import gc
 import SAVERR as svr
-import INFO as inf
 import HELLO as begin
 import LOADING as ld 
 
@@ -26,7 +25,6 @@ filer=svr.getFile(1,3)
 print(filer)
 if filer<5:
   load=svr.getSave(filer)
-  
   name=svr.getName(filer)
   maxHealth=load[0]
   level=load[2]
@@ -43,63 +41,16 @@ else:
   gold=10
   enemies=0
 
-exit="y"
-
 if mode=="1":
-  gc.collect()
   import STORY as sty 
   ld.load(1)
   svr.saveGame(filer,maxHealth,moves,level,gold,enemies,name)
   
   sty.story(filer,maxHealth,moves,level,gold,enemies,name)
   
-
-
-while exit!="n" and mode=="2":
+if mode=="2":
+  import ENDLESS as end
+  ld.load(1)
   svr.saveGame(filer,maxHealth,moves,level,gold,enemies,name)
-  print("Hello "+ name)
-  print("You have ",int(gold)," gold" )
-  print()
-  print("Enter:\n8 to go to the shop \n6 to battle \n4 for info \n2 to quit\n" )
-  i=input("What will you do?")
-  while i != "8" and i!="6"and i!="4"and i!="2" :
-    print("That wasnt an option.\nTry again")
-    print("Type 8 to go to the shop, 6 to battle, 4 for info,or 2 to quit" )
-    i=input("What will you do?")
-    
-  if i=="8":
-    import SHOP as shp
-    ld.load(1)
-    #print("Heading to shop...")
-    stat=shp.shop(gold,moves,maxHealth)
-    gold=stat[0]
-    moves=stat[1]
-    maxHealth=stat[2]
-    ld.load(1)
-    
-  elif i=="6" :
-    import BATTLE as btl
-    ld.load(1)
-    
-    #print("Heading to battle...")
-    stats=btl.battle(name,gold,maxHealth,moves,enemies,level)
-    ld.load(1)
-    gold=stats[0]
-    moves=stats[2]
-    maxHealth=stats[1]
-    level=stats[3]
-    if gold==-978:
-      exit="n"
-      inf.gameOver(name,maxHealth,moves,level)
-      svr.saveGame(filer,0,0,0,0,0,"empty")
-    enemies=enemies+1
-  elif i=="4" :
-    ld.load(1)
-    #print("Heading to info...")
-    inf.displayInfo(name,maxHealth,moves,enemies,level)
-    ld.load(1)
-  elif i=="2" :
-    print("I hope you had fun!")
-    exit="n"
-    inf.gameOver(name,maxHealth,moves,level)
+  end.endlessMode(filer,maxHealth,moves,level,gold,enemies,name)
 

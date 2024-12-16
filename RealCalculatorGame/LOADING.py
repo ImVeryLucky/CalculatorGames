@@ -11,6 +11,14 @@ def load(stop):
       
     count+=1
 
+def checkInt(msg):
+  out=input(msg)
+  while out.isdigit()==False:
+    print(Invalid)
+    out=input(msg)
+  out=int(out)
+  return out
+
 def pri(msg,time):
   for i in msg:
     print(i,end="")

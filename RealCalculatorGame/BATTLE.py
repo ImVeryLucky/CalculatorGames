@@ -1,4 +1,4 @@
-from time import *
+from time import sleep
 
 def findEnemy(enemies,level,gold):
   if(gold < -10):
